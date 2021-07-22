@@ -25,6 +25,7 @@ from ibm_watson import AssistantV1
 from ibm_watson import SpeechToTextV1
 from ibm_watson import TextToSpeechV1
 from ibm_cloud_sdk_core import get_authenticator_from_environment
+from functools import reduce
 
 import assistant_setup
 
@@ -64,13 +65,31 @@ def getConvResponse():
     jsonContext = json.loads(convContext)
 
     response = assistant.message(workspace_id=workspace_id,
+                                message_type='text',
                                  input={'text': convText},
                                  context=jsonContext)
 
     response = response.get_result()
+    generic = ""
+    title = ""
+    optionsResponse = ""
+    if  not response["output"]["text"]:
+        print("empty")
+        generic = response["output"].get('generic', [])
+        if len(generic) != 0:
+            title = generic[0].get('title',"")
+            options =  generic[0].get('options',[])
+            if len(options) != 0:
+                optionsResponse = title + ' ' + ', '.join(map((lambda x: x['label']), options)) + '. '
+
     reponseText = response["output"]["text"]
-    responseDetails = {'responseText': '... '.join(reponseText),
+    if not reponseText:
+        responseDetails = {'responseText': optionsResponse,
                        'context': response["context"]}
+    else:
+        responseDetails = {'responseText': '... '.join(reponseText),
+                        'context': response["context"]}
+
     return jsonify(results=responseDetails)
 
 

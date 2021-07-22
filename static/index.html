@@ -29,17 +29,31 @@
   <link rel="stylesheet" href="./static/stylesheets/index.css" />
 </head>
 
-<body class="mdl-demo mdl-color--white-1000 mdl-color-text--black mdl-base">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-      <div class="mdl-layout__header-row" id="message-card-header">
-        <img id="bot_icon" src="./static/img/boticon.png" height="30"><span id="bot_heading">Voice Bot</span>
-        <img id="menu_bar" src="./static/img/menu.png" height="30">
+<body class="app">
+    <header>
+      <div class="title">
+        Western Sydney LHD COVID-19 Vaccination Chatbot
       </div>
     </header>
-    <main class="mdl-layout__content mdl-color--white">
+    <main>
+      <div id="messages-card-container">
+        <div id="messages-card">
+          <div id="messages">
+          </div>
+          <form id="message-form" class="bottomBar" action="#">
+              <img id="stt2" class="micImg" style="float:center;pointer-events:all" src="./static/img/mic.svg" alt="disconnected" />
+          </form>
+        </div>
+      </div>
+    </main>
+    <!--<header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout__header-row" id="message-card-header">
+        <span id="bot_heading">Western Sydney LHD COVID-19 Vaccination Chatbot </span>
+        <img id="menu_bar" src="./static/img/menu.png" height="30">
+      </div>
+    </header>--> 
+    <!--<main class="mdl-layout__content mdl-color--white">
       <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
-          <!-- Messages container -->
         <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
             <div id="messages">
@@ -62,9 +76,8 @@
         </div>
       </div>
 
-    </main>
-  </div>
-  <p><audio id="audio" controls></audio></p>
+    </main>-->
+  <audio id="audio" controls></audio>
 <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 <script type="text/javascript" src="./static/scripts/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./static/scripts/script.js"></script>

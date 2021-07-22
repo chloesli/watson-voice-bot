@@ -110,9 +110,9 @@ const recordMic = document.getElementById('stt2');
 recordMic.onclick = function() {
   const fullPath = recordMic.src;
   const filename = fullPath.replace(/^.*[\\/]/, '');
-  if (filename == 'mic.gif') {
+  if (filename == 'mic.svg') {
     try {
-      recordMic.src = './static/img/mic_active.png';
+      recordMic.src = './static/img/mic_active.svg';
       startRecording();
       console.log('recorder started');
       $('#q').val('I am listening ...');
@@ -122,7 +122,7 @@ recordMic.onclick = function() {
   } else {
     stopRecording();
     $('#q').val('');
-    recordMic.src = './static/img/mic.gif';
+    recordMic.src = './static/img/mic.svg';
   }
 };
 
@@ -177,6 +177,10 @@ window.onload = function init() {
     context = new AudioContext();
     console.log('Audio context set up.');
     console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+    window.setInterval(function() {
+      var elem = document.querySelector('main')
+      elem.scrollTop = elem.scrollHeight;
+    }, 1000);
   } catch (e) {
     alert('No web audio support in this browser!');
   }
