@@ -17,8 +17,8 @@ function displayMsgDiv(str, who) {
   msgHtml += "</div><div class='" + who + "-line'>" + strTime + '</div></div>';
 
   $('#messages').append(msgHtml);
-  $('#messages').scrollTop($('#messages')[0].scrollHeight);
-
+  var elem = document.querySelector('main')
+  elem.scrollTop = elem.scrollHeight;
   if (who == 'user') {
     $('#q').val('');
     $('#q').attr('disabled', 'disabled');
@@ -177,10 +177,6 @@ window.onload = function init() {
     context = new AudioContext();
     console.log('Audio context set up.');
     console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-    window.setInterval(function() {
-      var elem = document.querySelector('main')
-      elem.scrollTop = elem.scrollHeight;
-    }, 1000);
   } catch (e) {
     alert('No web audio support in this browser!');
   }
