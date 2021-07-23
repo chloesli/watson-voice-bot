@@ -1,3 +1,10 @@
+Screenshots:
+| Desktop | Mobile |
+| -- | -- |
+| ![image](https://user-images.githubusercontent.com/40907810/126728694-835d8b0b-416a-48e7-9bac-6d259f1d2347.png) | ![image](https://user-images.githubusercontent.com/40907810/126728757-9b738fec-7e43-465f-8bf0-6b60a27ee73e.png) |
+
+
+
 [![Build Status](https://api.travis-ci.org/IBM/watson-voice-bot.svg?branch=master)](https://travis-ci.org/IBM/watson-voice-bot)
 
 # Create a web based chatbot with voice input and output
