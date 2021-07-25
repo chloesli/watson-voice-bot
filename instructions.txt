@@ -1,0 +1,7 @@
+For full instructions on how to run the program see: 
+
+https://github.com/chloesli/watson-voice-bot/blob/master/doc/source/local.md#5-run-the-application 
+
+To see the forked github repository see:
+
+https://github.com/chloesli/watson-voice-bot 
